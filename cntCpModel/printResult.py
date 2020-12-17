@@ -1,11 +1,15 @@
 import tensorflow_datasets as tfds
 import tensorflow as tf
+import warnings
+warnings.simplefilter('ignore')
+import os
+cwdPath = os.getcwd()
 
 class ClassificationModel:
     
     def __init__(self):
-        self.modelPath = 'ourModel'
-        self.encoderPath = 'text.text'
+        self.modelPath = cwdPath + '/ourModel'
+        self.encoderPath = cwdPath + '/text.text'
         self.encoder = tfds.deprecated.text.SubwordTextEncoder.load_from_file(self.encoderPath)
         self.encoder.vocab_size
 
@@ -38,4 +42,4 @@ class ClassificationModel:
     def getResult(self, text):
         sample_pred_text = text
         predictions = self.sample_predict(sample_pred_text, pad=False)
-        return predictions
+        return predictions[0]

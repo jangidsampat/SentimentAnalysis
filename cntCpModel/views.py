@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from subprocess import run, PIPE
 from sys import executable, argv
-#from .printResult import ClassificationModel
+from .printResult import ClassificationModel
 
-#model = ClassificationModel()
+model = ClassificationModel()
 
 def getResult(text):
     return "Output : " + str(text)
@@ -13,6 +13,6 @@ def home(request):
 
 def printResult(request):
     text = request.POST.get('text')
-    #modelResults = model.getResult(text)
-    #print(modelResults)
-    return render(request, 'cntCpModel/index.html', {'text': getResult(text), 'tag': 'Positive', 'rating': '11111', 'confidence': '93.7 %'})
+    modelResults = model.getResult(text)
+    print(modelResults)
+    return render(request, 'cntCpModel/index.html', {'text': text, 'tag': 'Positive', 'rating': '11111', 'confidence': modelResults[0]})
