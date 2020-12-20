@@ -2,8 +2,7 @@ import tensorflow_datasets as tfds
 import tensorflow as tf
 import warnings
 warnings.simplefilter('ignore')
-import os
-cwdPath = os.getcwd()
+
 
 class ClassificationModel:
     

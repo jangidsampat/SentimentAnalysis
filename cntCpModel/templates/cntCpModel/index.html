@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CodeWiz | SIH2020</title>
+    <title>CNT CP | TY58</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i|Roboto:500" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
@@ -21,7 +21,7 @@
                         <h1 class="m-0">
                             <a href="">
                                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                    <title>CodeWiz</title>
+                                    <title>CNT CP</title>
                                     <defs>
                                         <linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="logo-gradient-b">
                                             <stop stop-color="#39D8C8" offset="0%"/>
@@ -88,10 +88,10 @@
                                 <div class="jumbotron bg-white shadow-lg ">
                                   <div class="newsletter-inner section-inner">
                                     <div class="newsletter-header text-center is-revealing mb-5" style="margin-top: -80px;">
-                                        <h2 class="section-title mt-0">CodeWiz | SIH 2020</h2>
-                                        <p class="blockquote" style="color: #333;">This is our Prototype for SIH 2020 problem statement</p>
+                                        <h2 class="section-title mt-0">CNT CP | TY58</h2>
+                                        <p class="blockquote" style="color: #333;">Web Development with NLP Backend in Python</p>
                                     </div>
-                                      <form action="/output/" method="POST">
+                                      <form action="/home/" method="POST">
                                           {% csrf_token %}
                                           <div class="input-group mb-3">
                                               <input type="text" style="font-size: 15px; padding: 23.4px" class="form-control rounded-sm" name="text" placeholder="Enter your Text ..." aria-label="text" aria-describedby="button-addon2">
@@ -100,27 +100,28 @@
                                               </div>
                                           </div>
                                       </form>
-                                      <p class="blockquote ">{{ text }}</p>
                                       <table class="table mt-5" style="margin-bottom: -80px;">
                                           <thead>
                                             <tr>
-                                              <th scope="col" style="font-size: 16px; color: #919191;">Tag</th>
+                                              <th scope="col" style="font-size: 16px; color: #919191;">Text</th>
+                                              <th scope="col" style="font-size: 16px; color: #919191;">Classification</th>
                                               <th scope="col" style="font-size: 16px; color: #919191;">Rating</th>
-                                              <th scope="col" style="font-size: 16px; color: #919191;">Confidence</th>
                                             </tr>
                                           </thead>
                                           <tbody>
-                                            <tr>
-                                              <td style="font-size: 16px; color: #333;">{{ tag }}</td>
-                                              <td style="font-size: 16px; color: #333;">
-                                                  {% for i in rating %}
-                                                      <div style="display: inline-block;">
-                                                      <img src="{% static 'star.png' %}" width="16" height="16">
-                                                      </div>
-                                                  {% endfor %}
-                                              </td>
-                                              <td style="font-size: 16px; color: #333;">{{ confidence }}</td>
-                                            </tr>
+                                            {% for i in lst %}
+                                                <tr>
+                                                    <td style="font-size: 10px; color: #333;">{{ i.text }}</td>
+                                                    <td style="font-size: 16px; color: #333;">{{ i.cls }}</td>
+                                                    <td style="font-size: 16px; color: #333;">
+                                                        {% for ii in i.rating %}
+                                                            <div style="display: inline-block;">
+                                                            <img src="{% static 'star.png' %}" width="16" height="16">
+                                                            </div>
+                                                        {% endfor %}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
                                           </tbody>
                                         </table>
                                   </div>
@@ -211,7 +212,7 @@
 
                                     </div>
                                     <h3 class="feature-title">Presentation</h3>
-                                    <p class="text-sm">This is the presentation for our Problem Statement in SIH 2020</p>
+                                    <p class="text-sm">This is the presentation for our Project</p>
                                 </div>
                             </div>
                             <div class="feature is-revealing">
@@ -226,7 +227,7 @@
                                         </svg>
                                     </div>
                                     <h3 class="feature-title">Model</h3>
-                                    <p class="text-sm">This is the Model for our Problem Statement in SIH 2020</p>
+                                    <p class="text-sm">This is the Model for our Project</p>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +242,7 @@
                     <div class="brand footer-brand">
                         <a href="#">
                             <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                <title>CodeWiz</title>
+                                <title>CNT CP | TY58</title>
                                 <defs>
                                     <path d="M32 16H16v16H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v14z" id="logo-gradient-footer-a"/>
                                     <linearGradient x1="50%" y1="50%" y2="100%" id="logo-gradient-footer-b">
@@ -264,7 +265,7 @@
                     <ul class="footer-social-links list-reset">
 
                     </ul>
-                    <div class="footer-copyright">&copy; 2020 CodeWiz, All rights reserved</div>
+                    <div class="footer-copyright">TY58 : 39, 40, 51, 75</div>
                 </div>
             </div>
         </footer>
