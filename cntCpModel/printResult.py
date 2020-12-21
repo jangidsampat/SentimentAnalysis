@@ -5,10 +5,10 @@ warnings.simplefilter('ignore')
 
 
 class ClassificationModel:
-    
+
     def __init__(self):
-        self.modelPath = cwdPath + '/ourModel'
-        self.encoderPath = cwdPath + '/text.text'
+        self.modelPath = 'C:/Users/Lenovo/OneDrive/Documents/Github/SentimentAnalysis/cntCpModel' + '/ourModel'
+        self.encoderPath = 'C:/Users/Lenovo/OneDrive/Documents/Github/SentimentAnalysis/cntCpModel' + '/text.text'
         self.encoder = tfds.deprecated.text.SubwordTextEncoder.load_from_file(self.encoderPath)
         self.encoder.vocab_size
 
