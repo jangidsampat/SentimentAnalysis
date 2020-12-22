@@ -8,7 +8,7 @@ def getClas(a):
     if a>0.65:
         return "Positive"
     elif a>0.35:
-        return "Nutral"
+        return "Neutral"
     return "Negative"
 
 def getRate(a):
